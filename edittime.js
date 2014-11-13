@@ -117,6 +117,7 @@ AddAction(15, af_none, "Load editor", "codebox", "Load editor", "Load editor", "
 //				 description);	// description in expressions panel
 
 AddExpression(0, ef_return_string, "Get text", "code box", "Text", "Get the code box's text.");
+AddExpression(1, ef_return_string, "Get selected text", "codebox", "SelectedText", "Get selected text");
 
 ACESDone();
 
@@ -144,6 +145,7 @@ function IDEObjectType()
 // Called by IDE when a new object instance of this type is to be created
 IDEObjectType.prototype.CreateInstance = function(instance)
 {
+	//var editor = ace.edit('editor');
 	return new IDEInstance(instance);
 }
 

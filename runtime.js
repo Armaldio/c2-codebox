@@ -4,6 +4,8 @@
 assert2(cr, "cr namespace not created");
 assert2(cr.plugins_, "cr.plugins_ not created");
 
+var editor;
+
 /////////////////////////////////////
 // Plugin class
 cr.plugins_.codebox = function(runtime)
@@ -28,7 +30,7 @@ cr.plugins_.codebox = function(runtime)
 
 	// called on startup for each object type
 	typeProto.onCreate = function()
-	{
+	{		
 	};
 
 	/////////////////////////////////////
@@ -236,10 +238,8 @@ cr.plugins_.codebox = function(runtime)
 	
 	Acts.prototype.SetText = function (text)
 	{
-		if (this.runtime.isDomFree)
-			return;
-		
-		this.elem.value = text;
+		//var editor = ace.edit('editor');
+		editor.setValue(text);
 	};
 	
 	Acts.prototype.SetTooltip = function (text)
@@ -310,7 +310,6 @@ cr.plugins_.codebox = function(runtime)
 
 	Acts.prototype.SetEditorTheme = function (choice)
 	{
-		var editor = ace.edit('editor');
 		if (choice == 0) {
 			editor.setTheme('ace/theme/monokai');
 		}else if (choice == 1) {
@@ -322,7 +321,6 @@ cr.plugins_.codebox = function(runtime)
 
 	Acts.prototype.SetEditorLang = function (choice)
 	{
-		var editor = ace.edit('editor');
 		if (choice == 0) {
 			editor.getSession().setMode("ace/mode/javascript");
 		}else if (choice == 1) {
@@ -334,7 +332,7 @@ cr.plugins_.codebox = function(runtime)
 
 	Acts.prototype.LoadEditor = function ()
 		{
-			var editor = ace.edit('editor');
+			editor = ace.edit('editor');
     		
     		editor.getSession().setMode('ace/mode/javascript');
     		editor.setTheme('ace/theme/monokai');
@@ -357,13 +355,12 @@ cr.plugins_.codebox = function(runtime)
 	
 	Exps.prototype.Text = function (ret)
 	{
-		if (this.runtime.isDomFree)
-		{
-			ret.set_string("");
-			return;
-		}
-		
-		ret.set_string(this.elem.value);
+		ret.set_string(editor.getValue());
+	};
+
+	Exps.prototype.SelectedText = function (ret)
+	{
+		ret.set_string(editor.session.getTextRange(editor.getSelectionRange()));
 	};
 	
 	pluginProto.exps = new Exps();
