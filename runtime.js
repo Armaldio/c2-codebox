@@ -313,13 +313,22 @@ cr.plugins_.codebox = function(runtime)
 		var editor = ace.edit('editor');
 		if (choice == 0) {
 			editor.setTheme('ace/theme/monokai');
-			console.log("Monokai loaded");
 		}else if (choice == 1) {
 			editor.setTheme('ace/theme/chaos');
-			console.log("Chaos loaded");
 		}else if (choice == 2) {
 			editor.setTheme('ace/theme/terminal');
-			console.log("Terminal loaded");
+		}
+	};
+
+	Acts.prototype.SetEditorLang = function (choice)
+	{
+		var editor = ace.edit('editor');
+		if (choice == 0) {
+			editor.getSession().setMode("ace/mode/javascript");
+		}else if (choice == 1) {
+			editor.getSession().setMode("ace/mode/c_cpp");
+		}else if (choice == 2) {
+			editor.getSession().setMode("ace/mode/csharp");
 		}
 	};
 
@@ -328,7 +337,8 @@ cr.plugins_.codebox = function(runtime)
 			var editor = ace.edit('editor');
     		
     		editor.getSession().setMode('ace/mode/javascript');
-    		editor.setValue('var dummyVar = "this is a dummy text";');
+    		editor.setTheme('ace/theme/monokai');
+    		editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
 		};
 	
 

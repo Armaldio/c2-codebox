@@ -90,7 +90,8 @@ AddComboParam("Theme", "Choose a theme : ");
 AddAction(10, af_none, "Set editor theme", "codebox", "Set editor theme to {0}", "Set the theme of the editor", "SetEditorTheme");
 
 //Change editor language
-AddComboParamOption("C++");
+AddComboParamOption("Javascript");
+AddComboParamOption("C/C++");
 AddComboParamOption("C#");
 AddComboParam("Language", "Choose a language : ");
 AddAction(11, af_none, "Set editor language", "codebox", "Set editor language to {0}", "Set the language of the editor", "SetEditorLang");
