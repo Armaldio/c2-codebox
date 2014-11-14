@@ -261,10 +261,11 @@ cr.plugins_.codebox = function (runtime) {
     };
 
     Acts.prototype.SetReadOnly = function (ro) {
-        if (this.runtime.isDomFree)
-            return;
-
-        this.elem.readOnly = (ro === 0);
+        if (ro == 0) {
+        	editor.setReadOnly(true);  // false to make it editable
+        }else{
+        	editor.setReadOnly(false);  // false to make it editable
+        };
     };
 
     Acts.prototype.SetFocus = function () {
@@ -333,6 +334,11 @@ cr.plugins_.codebox = function (runtime) {
         editor.gotoLine(line);
     };
 
+    Acts.prototype.setFontSize = function (size)
+    	{
+    		document.getElementById('editor').style.fontSize= size + 'px';
+    	};
+
 
 
 
@@ -348,6 +354,11 @@ cr.plugins_.codebox = function (runtime) {
 
     Exps.prototype.SelectedText = function (ret) {
         ret.set_string(editor.session.getTextRange(editor.getSelectionRange()));
+    };
+
+    Exps.prototype.getCursor = function (ret, variable) {
+    	var obj = editor.selection.getCursor();
+    	ret.set_int(obj[variable]);
     };
 
     pluginProto.exps = new Exps();

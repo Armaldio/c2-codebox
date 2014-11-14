@@ -108,6 +108,9 @@ AddAction(15, af_none, "Load editor", "codebox", "Load editor", "Load editor", "
 
 AddStringParam("Text", "The text to be inserted");
 AddAction(16, af_none, "Insert at cursor", "codebox", "Insert {0} at cursor", "Insert at cursor", "InsertAtCursor");
+
+AddStringParam("Text", "The text to be inserted");
+AddAction(17, af_none, "Set font size", "codebox", "Set font size", "Set font size", "setFontSize");
 ////////////////////////////////////////
 // Expressions
 
@@ -121,7 +124,9 @@ AddAction(16, af_none, "Insert at cursor", "codebox", "Insert {0} at cursor", "I
 
 AddExpression(0, ef_return_string, "Get text", "code box", "Text", "Get the code box's text.");
 AddExpression(1, ef_return_string, "Get selected text", "codebox", "SelectedText", "Get selected text");
-AddExpression(2, ef_return_string, "Get selected text", "codebox", "SelectedText", "Get selected text");
+
+AddNumberParam("Param", "0 for line or 1 for column");
+AddExpression(2, ef_return_number, "Get cursor line and column", "codebox", "getCursor", "Get cursor line and column");
 
 
 ACESDone();
