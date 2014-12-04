@@ -39,6 +39,7 @@ cr.plugins_.codebox = function (runtime) {
 
     // called whenever an instance is created
     instanceProto.onCreate = function () {
+
         // Not supported in DC
         if (this.runtime.isDomFree) {
             cr.logexport("[Construct 2] Textbox plugin not supported on this platform - the object will not be created");
@@ -72,6 +73,17 @@ cr.plugins_.codebox = function (runtime) {
         this.updatePosition(true);
 
         this.runtime.tickMe(this);
+
+        this.loadOnStartup = this.properties[5];
+        console.log(this.loadOnStartup);
+
+        if (this.loadOnStartup == 1) {
+            editor = ace.edit('editor');
+
+            editor.getSession().setMode('ace/mode/javascript');
+            editor.setTheme('ace/theme/monokai');
+            //editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
+        }
     };
 
     instanceProto.saveToJSON = function () {
@@ -323,7 +335,7 @@ cr.plugins_.codebox = function (runtime) {
 
         editor.getSession().setMode('ace/mode/javascript');
         editor.setTheme('ace/theme/monokai');
-        editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
+        //editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
     };
 
     Acts.prototype.InsertAtCursor = function (text) {

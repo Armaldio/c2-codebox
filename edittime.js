@@ -1,12 +1,12 @@
 ﻿function GetPluginSettings()
 {
 	return {
-		"name":			"Code box",
+		"name":			"Codebox",
 		"id":			"codebox",
 		"version":		"1.0",
-		"description":	"An input box with some code features",
+		"description":	"A customized input box with special features for coding, works on a variety of platforms",
 		"author":		"Armaldio",
-		"help url":		"http://www.scirra.com/manual/117/textbox",
+		"help url":		"https://www.scirra.com/forum/viewtopic.php?t=119123",
 		"category":		"Form controls",
 		"type":			"world",			// appears in layout
 		"rotatable":	false,
@@ -42,7 +42,7 @@
 //				description,		// appears in event wizard dialog when selected
 //				script_name);		// corresponding runtime function name
 				
-AddCondition(0, cf_trigger, "On text changed", "code box", "On text changed", "Triggered when the text in the code box changes.", "OnTextChanged");
+AddCondition(0, cf_trigger, "On text changed", "Codebox", "On text changed", "Triggered when the text in the code box changes.", "OnTextChanged");
 
 ////////////////////////////////////////
 // Actions
@@ -56,10 +56,10 @@ AddCondition(0, cf_trigger, "On text changed", "code box", "On text changed", "T
 //			 script_name);		// corresponding runtime function name
 
 AddStringParam("Text", "The text to set in the code box.");
-AddAction(0, af_none, "Set text", "code box", "Set text to {0}", "Set the code box's text.", "SetText");
+AddAction(0, af_none, "Set text", "Codebox", "Set text to {0}", "Set the code box's text.", "SetText");
 
 AddStringParam("Tooltip", "The tooltip to set on the code box.");
-AddAction(2, af_none, "Set tooltip", "code box", "Set tooltip to {0}", "Set the code box's tooltip.", "SetTooltip");
+AddAction(2, af_none, "Set tooltip", "Codebox", "Set tooltip to {0}", "Set the code box's tooltip.", "SetTooltip");
 
 AddComboParamOption("Invisible");
 AddComboParamOption("Visible");
@@ -69,48 +69,46 @@ AddAction(3, af_none, "Set visible", "Appearance", "Set <b>{0}</b>", "Hide or sh
 AddComboParamOption("Disabled");
 AddComboParamOption("Enabled");
 AddComboParam("Mode", "Choose whether to enable or disable the code box.");
-AddAction(4, af_none, "Set enabled", "code box", "Set <b>{0}</b>", "Disable or enable the code box.", "SetEnabled");
+AddAction(4, af_none, "Set enabled", "Codebox", "Set <b>{0}</b>", "Disable or enable the code box.", "SetEnabled");
 
 AddComboParamOption("Read-only");
 AddComboParamOption("Not read-only");
 AddComboParam("Mode", "Choose whether to enable or disable read-only mode.");
-AddAction(5, af_none, "Set read-only", "code box", "Set <b>{0}</b>", "Turn read-only on or off.", "SetReadOnly");
+AddAction(5, af_none, "Set read-only", "Codebox", "Set <b>{0}</b>", "Turn read-only on or off.", "SetReadOnly");
 
-AddAction(6, af_none, "Set focused", "code box", "Set focused", "Set the input focus to the code box.", "SetFocus");
+AddAction(6, af_none, "Set focused", "Codebox", "Set focused", "Set the input focus to the code box.", "SetFocus");
 
-AddAction(8, af_none, "Set unfocused", "code box", "Set unfocused", "Remove the input focus from the code box.", "SetBlur");
+AddAction(8, af_none, "Set unfocused", "Codebox", "Set unfocused", "Remove the input focus from the code box.", "SetBlur");
 
-AddAction(9, af_none, "Scroll to bottom", "code box", "Scroll to bottom", "Scroll to the bottom of the code box", "ScrollToBottom");
+AddAction(9, af_none, "Scroll to bottom", "Codebox", "Scroll to bottom", "Scroll to the bottom of the code box", "ScrollToBottom");
 
 //Change editor theme
 AddComboParamOption("Monokai");
 AddComboParamOption("Chaos");
 AddComboParamOption("Terminal");
 AddComboParam("Theme", "Choose a theme : ");
-AddAction(10, af_none, "Set editor theme", "codebox", "Set editor theme to {0}", "Set the theme of the editor", "SetEditorTheme");
+AddAction(10, af_none, "Set editor theme", "Codebox (Specific)", "Set editor theme to {0}", "Set the theme of the editor", "SetEditorTheme");
 
 //Change editor language
 AddComboParamOption("Javascript");
 AddComboParamOption("C/C++");
 AddComboParamOption("C#");
 AddComboParam("Language", "Choose a language : ");
-AddAction(11, af_none, "Set editor language", "codebox", "Set editor language to {0}", "Set the language of the editor", "SetEditorLang");
+AddAction(11, af_none, "Set editor language", "Codebox (Specific)", "Set editor language to {0}", "Set the language of the editor", "SetEditorLang");
 
-AddAction(12, af_none, "Insert text at cursor", "codebox", "Insert text at cursor", "Insert text at cursor", "InsertTextAtCursor");
+AddAction(12, af_none, "Insert text at cursor", "Codebox (Specific)", "Insert text at cursor", "Insert text at cursor", "InsertTextAtCursor");
 
 AddNumberParam("Line", "The line number where to go");
-AddAction(13, af_none, "Go to a line", "codebox", "Go to line {0}", "Go to a line", "GoToALine");
+AddAction(13, af_none, "Go to a line", "Codebox (Specific)", "Go to line {0}", "Go to a line", "GoToALine");
 
 AddNumberParam("Size", "The size of the font");
-AddAction(14, af_none, "Set font size", "codebox", "Set font size", "Set font size", "setfontSize");
+AddAction(14, af_none, "Set font size", "Codebox (Specific)", "Set font size", "Set font size", "setfontSize");
 
-AddAction(15, af_none, "Load editor", "codebox", "Load editor", "Load editor", "LoadEditor");
-
-AddStringParam("Text", "The text to be inserted");
-AddAction(16, af_none, "Insert at cursor", "codebox", "Insert {0} at cursor", "Insert at cursor", "InsertAtCursor");
+AddAction(15, af_none, "Load editor", "Codebox (Specific)", "Load editor", "Load editor", "LoadEditor");
 
 AddStringParam("Text", "The text to be inserted");
-AddAction(17, af_none, "Set font size", "codebox", "Set font size", "Set font size", "setFontSize");
+AddAction(16, af_none, "Insert at cursor", "Codebox (Specific)", "Insert {0} at cursor", "Insert at cursor", "InsertAtCursor");
+
 ////////////////////////////////////////
 // Expressions
 
@@ -122,11 +120,11 @@ AddAction(17, af_none, "Set font size", "codebox", "Set font size", "Set font si
 //				 exp_name,		// the expression name after the dot, e.g. "foo" for "myobject.foo" - also the runtime function name
 //				 description);	// description in expressions panel
 
-AddExpression(0, ef_return_string, "Get text", "code box", "Text", "Get the code box's text.");
-AddExpression(1, ef_return_string, "Get selected text", "codebox", "SelectedText", "Get selected text");
+AddExpression(0, ef_return_string, "Get text", "Codebox", "Text", "Get the code box's text.");
+AddExpression(1, ef_return_string, "Get selected text", "Codebox (Specific)", "SelectedText", "Get selected text");
 
 AddNumberParam("Param", "0 for line or 1 for column");
-AddExpression(2, ef_return_number, "Get cursor line and column", "codebox", "getCursor", "Get cursor line and column");
+AddExpression(2, ef_return_number, "Get cursor line and column", "Codebox (Specific)", "GetCursorPos", "Get cursor line and column");
 
 
 ACESDone();
@@ -137,7 +135,8 @@ var property_list = [
 	new cr.Property(ept_text,	"Tooltip",				"",			"Display this text when hovering the mouse over the control."),
 	new cr.Property(ept_combo,	"Initial visibility",	"Visible",	"Choose whether the code box is visible on startup.", "Invisible|Visible"),
 	new cr.Property(ept_combo,	"Enabled",				"Yes",		"Choose whether the code box is enabled or disabled on startup.", "No|Yes"),
-	new cr.Property(ept_combo,	"Read-only",			"No",		"Choose whether the code box is read-only on startup.", "No|Yes"),
+	new cr.Property(ept_combo, "Read-only", "No", "Choose whether the code box is read-only on startup.", "No|Yes"),
+    new cr.Property(ept_combo, "Load on startup", "Yes", "Choose whether the code box is loaded on startup.", "No|Yes"),
 	];
 	
 // Called by IDE when a new object type is to be created
