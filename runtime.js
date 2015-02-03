@@ -274,9 +274,9 @@ cr.plugins_.codebox = function (runtime) {
 
     Acts.prototype.SetReadOnly = function (ro) {
         if (ro == 0) {
-        	editor.setReadOnly(true);  // false to make it editable
-        }else{
-        	editor.setReadOnly(false);  // false to make it editable
+            editor.setReadOnly(true);  // false to make it editable
+        } else {
+            editor.setReadOnly(false);  // false to make it editable
         };
     };
 
@@ -294,12 +294,12 @@ cr.plugins_.codebox = function (runtime) {
         this.elem.blur();
     };
 
-    Acts.prototype.SetCSSStyle = function (p, v) {
+    /*Acts.prototype.SetCSSStyle = function (p, v) {
         if (this.runtime.isDomFree)
             return;
 
         jQuery(this.elem).css(p, v);
-    };
+    };*/
 
     Acts.prototype.ScrollToBottom = function () {
         if (this.runtime.isDomFree)
@@ -346,10 +346,10 @@ cr.plugins_.codebox = function (runtime) {
         editor.gotoLine(line);
     };
 
-    Acts.prototype.setFontSize = function (size)
-    	{
-    		document.getElementById('editor').style.fontSize= size + 'px';
-    	};
+    Acts.prototype.setFontSize = function (size) {
+        editor.setFontSize(size);
+        //document.getElementById('editor').style.fontSize = size + 'px';
+    };
 
 
 
@@ -369,8 +369,8 @@ cr.plugins_.codebox = function (runtime) {
     };
 
     Exps.prototype.getCursor = function (ret, variable) {
-    	var obj = editor.selection.getCursor();
-    	ret.set_int(obj[variable]);
+        var obj = editor.selection.getCursor();
+        ret.set_int(obj[variable]);
     };
 
     pluginProto.exps = new Exps();

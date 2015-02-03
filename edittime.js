@@ -102,12 +102,13 @@ AddNumberParam("Line", "The line number where to go");
 AddAction(13, af_none, "Go to a line", "Codebox (Specific)", "Go to line {0}", "Go to a line", "GoToALine");
 
 AddNumberParam("Size", "The size of the font");
-AddAction(14, af_none, "Set font size", "Codebox (Specific)", "Set font size", "Set font size", "setfontSize");
+AddAction(14, af_none, "Set font size", "Codebox (Specific)", "Set font size", "Set font size", "setFontSize");
 
 AddAction(15, af_none, "Load editor", "Codebox (Specific)", "Load editor", "Load editor", "LoadEditor");
 
 AddStringParam("Text", "The text to be inserted");
 AddAction(16, af_none, "Insert at cursor", "Codebox (Specific)", "Insert {0} at cursor", "Insert at cursor", "InsertAtCursor");
+
 
 ////////////////////////////////////////
 // Expressions
