@@ -75,14 +75,14 @@ cr.plugins_.codebox = function (runtime) {
         this.runtime.tickMe(this);
 
         this.loadOnStartup = this.properties[5];
-        console.log(this.loadOnStartup);
+        //console.log(this.loadOnStartup);
 
         if (this.loadOnStartup == 1) {
             editor = ace.edit('editor');
 
             editor.getSession().setMode('ace/mode/javascript');
             editor.setTheme('ace/theme/monokai');
-            //editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
+            editor.setValue(this.properties[0]);
         }
     };
 
@@ -247,7 +247,6 @@ cr.plugins_.codebox = function (runtime) {
     function Acts() { };
 
     Acts.prototype.SetText = function (text) {
-        //var editor = ace.edit('editor');
         editor.setValue(text);
     };
 
@@ -327,15 +326,18 @@ cr.plugins_.codebox = function (runtime) {
             editor.getSession().setMode("ace/mode/c_cpp");
         } else if (choice == 2) {
             editor.getSession().setMode("ace/mode/csharp");
+        } else if (choice == 3) {
+            editor.getSession().setMode("ace/mode/batch");
         }
     };
 
     Acts.prototype.LoadEditor = function () {
+        console.log("Load editor");
         editor = ace.edit('editor');
 
         editor.getSession().setMode('ace/mode/javascript');
         editor.setTheme('ace/theme/monokai');
-        //editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
+        editor.setValue('var dummyVar = "this is a dummy text"; //Javascript\n\nstd::cout << "Hello, new world!"; //C++\n\nConsole.WriteLine("Hello World!"); //C#');
     };
 
     Acts.prototype.InsertAtCursor = function (text) {

@@ -11,7 +11,7 @@
 		"type":			"world",			// appears in layout
 		"rotatable":	false,
 		"flags":		pf_position_aces | pf_size_aces,
-		"dependency":   "ace.js;theme-monokai.js;theme-chaos.js;theme-terminal.js;mode-javascript.js;worker-javascript.js;mode-c_cpp.js;mode-csharp.js;mode-vbscript.js;mode-css.js;mode-html.js;mode-php.js;mode-plain_text.js;mode-snippets.js;mode-sql.js"
+		"dependency": "ace.js;theme-monokai.js;theme-chaos.js;theme-terminal.js;mode-javascript.js;worker-javascript.js;mode-c_cpp.js;mode-csharp.js;mode-vbscript.js;mode-css.js;mode-html.js;mode-php.js;mode-plain_text.js;mode-snippets.js;mode-sql.js;mode-batch.js"
 	};
 };
 
@@ -93,10 +93,9 @@ AddAction(10, af_none, "Set editor theme", "Codebox (Specific)", "Set editor the
 AddComboParamOption("Javascript");
 AddComboParamOption("C/C++");
 AddComboParamOption("C#");
+AddComboParamOption("Batch");
 AddComboParam("Language", "Choose a language : ");
 AddAction(11, af_none, "Set editor language", "Codebox (Specific)", "Set editor language to {0}", "Set the language of the editor", "SetEditorLang");
-
-AddAction(12, af_none, "Insert text at cursor", "Codebox (Specific)", "Insert text at cursor", "Insert text at cursor", "InsertTextAtCursor");
 
 AddNumberParam("Line", "The line number where to go");
 AddAction(13, af_none, "Go to a line", "Codebox (Specific)", "Go to line {0}", "Go to a line", "GoToALine");
